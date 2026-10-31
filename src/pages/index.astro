@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import ProductMatrix from '../components/ProductMatrix.astro';
+import ProcessFlow from '../components/ProcessFlow.astro';
+import Certifications from '../components/Certifications.astro';
+import FactoryStats from '../components/FactoryStats.astro';
+import FaqSection from '../components/FaqSection.astro';
+import ContactRfq from '../components/ContactRfq.astro';
+import Footer from '../components/Footer.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+---
+
+<Layout>
+  <Navbar />
+  <main class="flex-1">
+    <Hero />
+    <ProductMatrix />
+    <ProcessFlow />
+    <Certifications />
+    <FactoryStats />
+    <FaqSection />
+    <ContactRfq />
+  </main>
+  <Footer />
+  <FloatingActions />
+</Layout>

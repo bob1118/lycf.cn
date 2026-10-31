@@ -1,0 +1,221 @@
+---
+import { companyInfo, navItems } from '../data/siteContent';
+---
+
+<!-- Top Trade Announcement Bar -->
+<div class="bg-brand-900 text-slate-200 text-xs border-b border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
+    <div class="flex items-center gap-4 overflow-hidden whitespace-nowrap">
+      <span class="inline-flex items-center gap-1.5 text-gold-400 font-medium">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="lang-en">{companyInfo.name.en} · Verified China Textile Exporter</span>
+        <span class="lang-zh">{companyInfo.name.zh} · 义乌纺织品源头生产与外贸出口企业</span>
+      </span>
+      <span class="hidden md:inline text-slate-600">|</span>
+      <span class="hidden md:inline text-slate-300">
+        <span class="lang-en">Yiwu Futian Hub · FOB Ningbo / Shanghai · CIF · DDP</span>
+        <span class="lang-zh">义乌福田核心区 · FOB 宁波/上海 · 义乌拼柜与全球 DDP 到门</span>
+      </span>
+    </div>
+
+    <div class="flex items-center gap-4 shrink-0">
+      <a
+        href={`mailto:${companyInfo.email}`}
+        class="hover:text-gold-400 transition-colors hidden sm:inline-flex items-center gap-1.5"
+      >
+        <svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          ></path>
+        </svg>
+        <span>{companyInfo.email}</span>
+      </a>
+      <span class="hidden sm:inline text-slate-700">|</span>
+      <a
+        href={`tel:${companyInfo.phone.replace(/\s+/g, '')}`}
+        class="hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
+      >
+        <span class="text-emerald-400 font-semibold">
+          <span class="lang-en">Tel / WeChat:</span>
+          <span class="lang-zh">电话 / 微信：</span>
+        </span>
+        <span>{companyInfo.phone}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Main Navigation (HEADER: LOGO和公司名称，首页，产品中心，外贸服务，关于我们，联系我们，语言切换) -->
+<header
+  id="site-header"
+  class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-shadow duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Left: Official Luoyi Logo & Company Full Name -->
+      <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+        <div
+          class="w-12 h-12 rounded-xl bg-white border border-slate-200/90 p-1 flex items-center justify-center shadow-sm group-hover:border-gold-400 transition-colors shrink-0"
+        >
+          <img
+            src={companyInfo.logoUrl}
+            alt="Jinhua Luoyi Textile Co., Ltd. Logo"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div>
+          <div class="font-display font-extrabold text-base sm:text-lg tracking-tight text-brand-900 leading-snug">
+            <span class="lang-en">{companyInfo.name.en}</span>
+            <span class="lang-zh">{companyInfo.name.zh}</span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium tracking-tight">
+            <span class="lang-en">Luoyi Textile Factory · Fabrics / Home Textiles / Accessories</span>
+            <span class="lang-zh">洛屹纺织 · 面料坯布 / 家纺成品 / 纺织配饰</span>
+          </p>
+        </div>
+      </a>
+
+      <!-- Center: 5 Navigation Links per readme.md (首页, 产品中心, 外贸服务, 关于我们, 联系我们) -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-brand-800 hover:bg-slate-100/80 transition-all"
+            >
+              <span class="lang-en">{item.label.en}</span>
+              <span class="lang-zh">{item.label.zh}</span>
+            </a>
+          ))
+        }
+      </nav>
+
+      <!-- Right Controls: Language Switcher & Inquiry Button -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Bilingual Switcher Pill -->
+        <div
+          class="inline-flex items-center p-1 rounded-lg bg-slate-100 border border-slate-200/80 text-xs font-semibold"
+          role="group"
+          aria-label="Language Switcher"
+        >
+          <button
+            type="button"
+            data-lang-btn="en"
+            onclick="window.setSiteLanguage('en')"
+            class="px-2.5 py-1 rounded-md transition-all bg-brand-800 text-white shadow-sm"
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            data-lang-btn="zh"
+            onclick="window.setSiteLanguage('zh')"
+            class="px-2.5 py-1 rounded-md transition-all text-slate-600 hover:text-brand-900"
+          >
+            中文
+          </button>
+        </div>
+
+        <!-- Get a Quote CTA -->
+        <a
+          href="#contact"
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-800 hover:bg-brand-900 text-white text-sm font-semibold shadow-sm hover:shadow transition-all"
+        >
+          <span>
+            <span class="lang-en">Inquire Now</span>
+            <span class="lang-zh">在线询价</span>
+          </span>
+          <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          aria-label="Toggle Navigation Menu"
+          class="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none"
+        >
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Drawer -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 shadow-xl">
+    <div class="flex flex-col space-y-1">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="mobile-nav-link px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:text-brand-800 hover:bg-slate-50"
+          >
+            <span class="lang-en">{item.label.en}</span>
+            <span class="lang-zh">{item.label.zh}</span>
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+      <a
+        href="#contact"
+        class="mobile-nav-link w-full py-3 rounded-lg bg-brand-800 text-white text-center font-semibold text-sm shadow-sm"
+      >
+        <span class="lang-en">Request Free Swatches & Quote</span>
+        <span class="lang-zh">免费索取样布与外贸报价</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggleBtn = document.getElementById('mobile-menu-toggle');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var iconOpen = document.getElementById('menu-icon-open');
+    var iconClose = document.getElementById('menu-icon-close');
+    var header = document.getElementById('site-header');
+
+    if (toggleBtn && mobileMenu) {
+      toggleBtn.addEventListener('click', function () {
+        var isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!header) return;
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-md');
+      } else {
+        header.classList.remove('shadow-md');
+      }
+    });
+  });
+</script>

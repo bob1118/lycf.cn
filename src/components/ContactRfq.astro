@@ -1,0 +1,497 @@
+---
+import { companyInfo } from '../data/siteContent';
+---
+
+<section id="contact" class="py-20 md:py-28 bg-brand-950 text-white relative overflow-hidden">
+  <!-- Background Accent -->
+  <div class="absolute inset-0 bg-hero-grid opacity-40 pointer-events-none"></div>
+  <div
+    class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl pointer-events-none"
+  ></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Column: Direct Export Contact Details & Google Map -->
+      <div class="lg:col-span-5 space-y-6">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/30 text-xs font-bold uppercase tracking-wider mb-3"
+          >
+            <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span>
+            <span class="lang-en">Contact Us · Direct Factory RFQ</span>
+            <span class="lang-zh">联系我们 · 源头工厂直连报价</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+            <span class="lang-en">Get in Touch with {companyInfo.name.en}</span>
+            <span class="lang-zh">联系{companyInfo.name.zh}</span>
+          </h2>
+          <p class="mt-2.5 text-slate-300 text-sm leading-relaxed">
+            <span class="lang-en">
+              Request free fabric swatches, lab dips, or bulk FOB/CIF/DDP quotations. Our export team in Yiwu will reply within 12 hours.
+            </span>
+            <span class="lang-zh">
+              欢迎联系我们免费申领样布色卡、咨询定制打样或获取外贸阶梯报价单，我们的义乌外贸团队将在12小时内极速响应。
+            </span>
+          </p>
+        </div>
+
+        <!-- Direct Contact Cards (Exact Info from public/readme.md) -->
+        <div class="space-y-3.5">
+          <!-- Full Company Name & Address -->
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-lg bg-brand-700 text-gold-300 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-400 uppercase font-bold tracking-wider">
+                <span class="lang-en">Company Full Name & Address</span>
+                <span class="lang-zh">企业全称与办公地址</span>
+              </div>
+              <div class="text-sm font-bold text-gold-300 mt-0.5">
+                <span class="lang-en">{companyInfo.name.en}</span>
+                <span class="lang-zh">{companyInfo.name.zh}</span>
+              </div>
+              <p class="text-xs sm:text-sm text-white mt-1 leading-snug">
+                <span class="lang-en">{companyInfo.address.en}</span>
+                <span class="lang-zh">{companyInfo.address.zh}</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Phone & WeChat -->
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-lg bg-emerald-500 text-brand-950 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-400 uppercase font-bold tracking-wider">
+                <span class="lang-en">Tel / WeChat</span>
+                <span class="lang-zh">联系电话 / 微信同号</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-0.5">
+                <a
+                  href={`tel:${companyInfo.phone.replace(/\s+/g, '')}`}
+                  class="text-base sm:text-lg font-bold text-white hover:text-emerald-400 transition-colors"
+                >
+                  {companyInfo.phone}
+                </a>
+                <span
+                  class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-semibold"
+                >
+                  <span class="lang-en">WeChat ID: {companyInfo.wechatId}</span>
+                  <span class="lang-zh">微信号：{companyInfo.wechatId}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-lg bg-gold-500 text-brand-950 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-slate-400 uppercase font-bold tracking-wider">
+                <span class="lang-en">Official Export Email</span>
+                <span class="lang-zh">官方外贸邮箱</span>
+              </div>
+              <a
+                href={`mailto:${companyInfo.email}`}
+                class="text-base sm:text-lg font-bold text-white hover:text-gold-400 transition-colors"
+              >
+                {companyInfo.email}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Embedded Google Map Location -->
+        <div class="rounded-2xl overflow-hidden border border-white/15 bg-brand-900 shadow-lg">
+          <div class="px-4 py-2.5 bg-white/5 border-b border-white/10 flex items-center justify-between text-xs">
+            <span class="font-semibold text-gold-300 flex items-center gap-1.5">
+              <span>📍</span>
+              <span class="lang-en">Google Maps Location (Yiwu Futian Sub-district)</span>
+              <span class="lang-zh">谷歌地图位置（义乌市福田街道诚信三街62号）</span>
+            </span>
+            <a
+              href={companyInfo.googleMapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-slate-300 hover:text-white underline"
+            >
+              <span class="lang-en">Open in Google Maps ↗</span>
+              <span class="lang-zh">在谷歌地图打开 ↗</span>
+            </a>
+          </div>
+          <iframe
+            src={companyInfo.googleMapsEmbedUrl}
+            width="100%"
+            height="210"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Jinhua Luoyi Textile Co., Ltd. Google Map Location"
+            class="w-full h-52"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Right Column: B2B Inquiry Form -->
+      <div class="lg:col-span-7">
+        <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-slate-200">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+            <div>
+              <h3 class="font-display text-xl sm:text-2xl font-extrabold text-brand-900">
+                <span class="lang-en">Send an Export Inquiry (RFQ)</span>
+                <span class="lang-zh">在线发送外贸询盘与索样申请</span>
+              </h3>
+              <p class="text-xs text-slate-500 mt-0.5">
+                <span class="lang-en">Direct to {companyInfo.email} · Free A4 Swatches Available</span>
+                <span class="lang-zh">直达官方邮箱 {companyInfo.email} · 免费提供 A4 品质样</span>
+              </p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">
+              <span class="lang-en">● Online</span>
+              <span class="lang-zh">● 在线响应</span>
+            </span>
+          </div>
+
+          <!-- Selected Product Notice Banner -->
+          <div
+            id="selected-product-banner"
+            class="hidden mb-5 p-3.5 rounded-xl bg-gold-50 border border-gold-300 text-xs sm:text-sm flex items-center justify-between gap-3"
+          >
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-brand-900 text-gold-400 font-mono font-bold text-xs" id="selected-product-code">
+                #LY-FB101
+              </span>
+              <span class="font-semibold text-brand-900" id="selected-product-title"></span>
+            </div>
+            <button
+              type="button"
+              onclick="window.clearSelectedProduct()"
+              class="text-xs text-slate-500 hover:text-red-600 font-semibold shrink-0"
+            >
+              ✕
+            </button>
+          </div>
+
+          <form id="rfq-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                  <span class="lang-en">Your Name *</span>
+                  <span class="lang-zh">您的姓名 / 称呼 *</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  data-placeholder-en="e.g. David Miller"
+                  data-placeholder-zh="例如：张经理 / David"
+                  placeholder="e.g. David Miller"
+                  class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-800 focus:ring-2 focus:ring-brand-800/20 text-sm outline-none transition-all"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                  <span class="lang-en">Company Name *</span>
+                  <span class="lang-zh">公司 / 品牌名称 *</span>
+                </label>
+                <input
+                  type="text"
+                  name="company"
+                  required
+                  data-placeholder-en="e.g. Nordic Home & Apparel Ltd."
+                  data-placeholder-zh="例如：某某进出口贸易有限公司"
+                  placeholder="e.g. Nordic Home & Apparel Ltd."
+                  class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-800 focus:ring-2 focus:ring-brand-800/20 text-sm outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                  <span class="lang-en">Business Email *</span>
+                  <span class="lang-zh">工作邮箱 (接收报价单) *</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  data-placeholder-en="buyer@yourcompany.com"
+                  data-placeholder-zh="buyer@yourcompany.com"
+                  placeholder="buyer@yourcompany.com"
+                  class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-800 focus:ring-2 focus:ring-brand-800/20 text-sm outline-none transition-all"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                  <span class="lang-en">Phone / WeChat</span>
+                  <span class="lang-zh">手机号 / 微信号</span>
+                </label>
+                <input
+                  type="text"
+                  name="phone"
+                  data-placeholder-en="+1 / +44 / +86 / WeChat ID..."
+                  data-placeholder-zh="便于业务经理快速与您对接样品细节"
+                  placeholder="+1 / +44 / +86 / WeChat ID..."
+                  class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-800 focus:ring-2 focus:ring-brand-800/20 text-sm outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <!-- Interested Product Categories Checkboxes -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                <span class="lang-en">Interested Product Lines (Select one or more)</span>
+                <span class="lang-zh">意向采购产品类别（可多选）</span>
+              </label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <label
+                  class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 hover:border-brand-600 cursor-pointer bg-slate-50/70 text-xs font-semibold text-slate-700"
+                >
+                  <input
+                    type="checkbox"
+                    name="category"
+                    value="Fabrics & Greige"
+                    id="chk-fabrics"
+                    class="rounded text-brand-800 focus:ring-brand-800"
+                    checked
+                  />
+                  <span>
+                    <span class="lang-en">1. Fabrics & Greige</span>
+                    <span class="lang-zh">1. 面料与坯布</span>
+                  </span>
+                </label>
+
+                <label
+                  class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 hover:border-brand-600 cursor-pointer bg-slate-50/70 text-xs font-semibold text-slate-700"
+                >
+                  <input
+                    type="checkbox"
+                    name="category"
+                    value="Home Textiles"
+                    id="chk-home-textiles"
+                    class="rounded text-brand-800 focus:ring-brand-800"
+                  />
+                  <span>
+                    <span class="lang-en">2. Home Textiles</span>
+                    <span class="lang-zh">2. 家纺成品</span>
+                  </span>
+                </label>
+
+                <label
+                  class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-200 hover:border-brand-600 cursor-pointer bg-slate-50/70 text-xs font-semibold text-slate-700"
+                >
+                  <input
+                    type="checkbox"
+                    name="category"
+                    value="Textile Accessories"
+                    id="chk-accessories"
+                    class="rounded text-brand-800 focus:ring-brand-800"
+                  />
+                  <span>
+                    <span class="lang-en">3. Accessories</span>
+                    <span class="lang-zh">3. 纺织配饰</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Message / Spec Details -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                <span class="lang-en">Specifications, Target Quantity & Trade Terms *</span>
+                <span class="lang-zh">具体规格要求、预计采购数量及贸易方式 *</span>
+              </label>
+              <textarea
+                id="rfq-message"
+                name="message"
+                rows="4"
+                required
+                data-placeholder-en="Please share composition, yarn count/GSM, width/dimensions, estimated order quantity, destination port (FOB/CIF/DDP), or sample request..."
+                data-placeholder-zh="请填写您需要的材质成分、纱支密度/克重门幅、成品尺寸、预计采购数量、目的港（FOB/CIF/DDP）或索样需求..."
+                placeholder="Please share composition, yarn count/GSM, width/dimensions, estimated order quantity, destination port (FOB/CIF/DDP), or sample request..."
+                class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-800 focus:ring-2 focus:ring-brand-800/20 text-sm outline-none transition-all"
+              ></textarea>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <button
+                type="submit"
+                class="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-brand-800 hover:bg-brand-900 text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  ></path>
+                </svg>
+                <span class="lang-en">Submit RFQ Inquiry & Request Samples</span>
+                <span class="lang-zh">立即提交外贸询盘并申请样品</span>
+              </button>
+
+              <a
+                href={`tel:${companyInfo.phone.replace(/\s+/g, '')}`}
+                class="w-full sm:w-auto py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shrink-0"
+              >
+                <span class="lang-en">WeChat / Tel: {companyInfo.phone}</span>
+                <span class="lang-zh">微信 / 电话：{companyInfo.phone}</span>
+              </a>
+            </div>
+          </form>
+
+          <!-- Success Feedback Box -->
+          <div
+            id="rfq-success"
+            class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"
+          >
+            <div class="font-bold mb-1">
+              <span class="lang-en">✓ Thank you! Your RFQ has been prepared.</span>
+              <span class="lang-zh">✓ 感谢您的询盘！您的外贸询价信息已生成。</span>
+            </div>
+            <p class="text-xs text-emerald-700">
+              <span class="lang-en">
+                Your email client has been opened to send your inquiry directly to <strong>{companyInfo.email}</strong>, or you can contact us immediately via WeChat / Tel ({companyInfo.phone}).
+              </span>
+              <span class="lang-zh">
+                已为您唤起邮件客户端发送至 <strong>{companyInfo.email}</strong>，您也可以直接拨打电话或添加微信 ({companyInfo.phone}) 实时沟通。
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  window.selectProductForQuote = function (code, nameEn, nameZh, categoryKey) {
+    var banner = document.getElementById('selected-product-banner');
+    var codeEl = document.getElementById('selected-product-code');
+    var titleEl = document.getElementById('selected-product-title');
+    var msgEl = document.getElementById('rfq-message');
+    var currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+
+    if (banner && codeEl && titleEl) {
+      codeEl.textContent = '#' + code;
+      titleEl.textContent = currentLang === 'zh' ? nameZh : nameEn;
+      banner.classList.remove('hidden');
+    }
+
+    // Check matching category checkbox
+    var chkFabrics = document.getElementById('chk-fabrics');
+    var chkHome = document.getElementById('chk-home-textiles');
+    var chkAcc = document.getElementById('chk-accessories');
+    if (chkFabrics && chkHome && chkAcc) {
+      chkFabrics.checked = categoryKey === 'fabrics';
+      chkHome.checked = categoryKey === 'home-textiles';
+      chkAcc.checked = categoryKey === 'accessories';
+    }
+
+    // Pre-fill textarea with selected product reference
+    if (msgEl) {
+      if (currentLang === 'zh') {
+        msgEl.value =
+          '您好，我对金华洛屹纺织品的产品【#' +
+          code +
+          ' - ' +
+          nameZh +
+          '】感兴趣，请发送该产品的详细规格表、FOB阶梯报价单及免费A4样布寄送方案。预计采购量：';
+      } else {
+        msgEl.value =
+          'Hello Jinhua Luoyi Textile Team, I am interested in Item [#' +
+          code +
+          ' - ' +
+          nameEn +
+          ']. Please send the FOB price list, MOQ details, and free swatch availability. Target quantity: ';
+      }
+    }
+
+    // Smooth scroll to contact form
+    var contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  window.clearSelectedProduct = function () {
+    var banner = document.getElementById('selected-product-banner');
+    if (banner) banner.classList.add('hidden');
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('rfq-form');
+    var successBox = document.getElementById('rfq-success');
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var formData = new FormData(form);
+        var name = formData.get('name') || '';
+        var company = formData.get('company') || '';
+        var email = formData.get('email') || '';
+        var phone = formData.get('phone') || '';
+        var categories = formData.getAll('category').join(', ');
+        var message = formData.get('message') || '';
+
+        var subject = encodeURIComponent('[RFQ Inquiry from lycf.cn] ' + company + ' - ' + name);
+        var body = encodeURIComponent(
+          'Name: ' +
+            name +
+            '\nCompany: ' +
+            company +
+            '\nEmail: ' +
+            email +
+            '\nWeChat/Tel: ' +
+            phone +
+            '\nInterested Categories: ' +
+            categories +
+            '\n\nInquiry Details:\n' +
+            message
+        );
+
+        if (successBox) {
+          successBox.classList.remove('hidden');
+        }
+
+        window.location.href = 'mailto:service@lycf.cn?subject=' + subject + '&body=' + body;
+      });
+    }
+  });
+</script>

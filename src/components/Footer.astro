@@ -1,0 +1,209 @@
+---
+import { companyInfo, navItems } from '../data/siteContent';
+const currentYear = new Date().getFullYear();
+---
+
+<!-- FOOTER per public/readme.md: 企业信息 (全名、地址、电话、邮箱、谷歌地图位置) -->
+<footer class="bg-brand-950 text-slate-300 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+      <!-- Col 1 (5 cols): Official Company Info (全名、地址、电话、邮箱) -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 shadow">
+            <img src={companyInfo.logoUrl} alt="Luoyi Textile Logo" class="w-full h-full object-contain" />
+          </div>
+          <div>
+            <h3 class="font-display font-extrabold text-lg text-white leading-snug">
+              <span class="lang-en">{companyInfo.name.en}</span>
+              <span class="lang-zh">{companyInfo.name.zh}</span>
+            </h3>
+            <p class="text-xs text-gold-400 font-semibold">
+              <span class="lang-en">Luoyi Textile Factory · {companyInfo.domain}</span>
+              <span class="lang-zh">洛屹纺织外贸出口 · {companyInfo.domain}</span>
+            </p>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+          <span class="lang-en">{companyInfo.tagline.en}</span>
+          <span class="lang-zh">{companyInfo.tagline.zh}</span>
+        </p>
+
+        <!-- Structured Enterprise Info List matching readme.md -->
+        <ul class="space-y-2.5 text-xs sm:text-sm pt-2 border-t border-white/10">
+          <li class="flex items-start gap-2.5">
+            <span class="text-gold-400 font-bold shrink-0">
+              <span class="lang-en">Company Name:</span>
+              <span class="lang-zh">企业全名：</span>
+            </span>
+            <span class="text-white font-medium">
+              <span class="lang-en">{companyInfo.name.en}</span>
+              <span class="lang-zh">{companyInfo.name.zh}</span>
+            </span>
+          </li>
+
+          <li class="flex items-start gap-2.5">
+            <span class="text-gold-400 font-bold shrink-0">
+              <span class="lang-en">Address:</span>
+              <span class="lang-zh">企业地址：</span>
+            </span>
+            <span class="text-slate-200">
+              <span class="lang-en">{companyInfo.address.en}</span>
+              <span class="lang-zh">{companyInfo.address.zh}</span>
+            </span>
+          </li>
+
+          <li class="flex items-center gap-2.5">
+            <span class="text-gold-400 font-bold shrink-0">
+              <span class="lang-en">Phone / WeChat:</span>
+              <span class="lang-zh">联系电话 / 微信：</span>
+            </span>
+            <a href={`tel:${companyInfo.phone.replace(/\s+/g, '')}`} class="text-white font-semibold hover:text-gold-400">
+              {companyInfo.phone}
+            </a>
+          </li>
+
+          <li class="flex items-center gap-2.5">
+            <span class="text-gold-400 font-bold shrink-0">
+              <span class="lang-en">Email:</span>
+              <span class="lang-zh">电子邮箱：</span>
+            </span>
+            <a href={`mailto:${companyInfo.email}`} class="text-white font-semibold hover:text-gold-400">
+              {companyInfo.email}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 2 (3 cols): Quick Navigation & Product Center -->
+      <div class="lg:col-span-3 space-y-5">
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">
+            <span class="lang-en">Site Navigation</span>
+            <span class="lang-zh">网站导航</span>
+          </h4>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            {
+              navItems.map((item) => (
+                <li>
+                  <a href={item.href} class="text-slate-400 hover:text-gold-400 transition-colors">
+                    <span class="lang-en">{item.label.en}</span>
+                    <span class="lang-zh">{item.label.zh}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-white/10">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5">
+            <span class="lang-en">Core Product Lines</span>
+            <span class="lang-zh">三大主营产品线</span>
+          </h4>
+          <ul class="space-y-1.5 text-xs text-slate-400">
+            <li>
+              <a
+                href="#products"
+                onclick="window.filterProductCategory && window.filterProductCategory('fabrics')"
+                class="hover:text-gold-400"
+              >
+                <span class="lang-en">• Fabrics & Woven Greige Goods</span>
+                <span class="lang-zh">• 面料与坯布系列</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#products"
+                onclick="window.filterProductCategory && window.filterProductCategory('home-textiles')"
+                class="hover:text-gold-400"
+              >
+                <span class="lang-en">• Finished Home Textiles</span>
+                <span class="lang-zh">• 家纺成品系列</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#products"
+                onclick="window.filterProductCategory && window.filterProductCategory('accessories')"
+                class="hover:text-gold-400"
+              >
+                <span class="lang-en">• Custom Textile Accessories</span>
+                <span class="lang-zh">• 纺织配饰系列</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Col 3 (4 cols): Google Maps Location (位置：谷歌地图位置) -->
+      <div class="lg:col-span-4 space-y-3">
+        <div class="flex items-center justify-between">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">
+            <span class="lang-en">Google Maps Location</span>
+            <span class="lang-zh">地理位置（谷歌地图）</span>
+          </h4>
+          <a
+            href={companyInfo.googleMapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs text-gold-400 hover:underline"
+          >
+            <span class="lang-en">Navigate ↗</span>
+            <span class="lang-zh">导航前往 ↗</span>
+          </a>
+        </div>
+
+        <div class="rounded-xl overflow-hidden border border-white/15 bg-brand-900 h-48">
+          <iframe
+            src={companyInfo.googleMapsEmbedUrl}
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Footer Google Map - Jinhua Luoyi Textile Co., Ltd."
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          <span class="lang-en">
+            📍 Room 301, No. 62 Chengxin 3rd Street, Futian Sub-district, Yiwu City, Jinhua City, Zhejiang, China
+          </span>
+          <span class="lang-zh">
+            📍 浙江省金华市义乌市福田街道诚信三街62号301室（毗邻义乌国际商贸城）
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Trade Terms -->
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>
+        <span class="lang-en">© {currentYear} {companyInfo.name.en} ({companyInfo.domain}). All Rights Reserved.</span>
+        <span class="lang-zh">© {currentYear} {companyInfo.name.zh} ({companyInfo.domain}) 版权所有</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <span>
+          <span class="lang-en">Tel:</span>
+          <span class="lang-zh">电话：</span>
+          {companyInfo.phone}
+        </span>
+        <span>•</span>
+        <span>
+          <span class="lang-en">Email:</span>
+          <span class="lang-zh">邮箱：</span>
+          {companyInfo.email}
+        </span>
+        <span>•</span>
+        <span>
+          <span class="lang-en">Yiwu, Zhejiang, China</span>
+          <span class="lang-zh">中国·浙江义乌</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>

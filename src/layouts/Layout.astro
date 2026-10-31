@@ -1,0 +1,142 @@
+---
+import '../styles/global.css';
+import { companyInfo } from '../data/siteContent';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Jinhua Luoyi Textile Co., Ltd. | Global Textile Exporter — Fabrics, Home Textiles & Accessories (lycf.cn)',
+  description = 'Jinhua Luoyi Textile Co., Ltd. (lycf.cn) located in Yiwu, China. Specialized B2B manufacturer & exporter of woven greige/dyed fabrics, finished home textiles, and custom fashion accessories.',
+} = Astro.props;
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: companyInfo.name.en,
+  alternateName: companyInfo.name.zh,
+  url: 'https://lycf.cn',
+  logo: 'https://lycf.cn/luoyi%20logo.png',
+  foundingDate: String(companyInfo.established),
+  description: description,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Room 301, No. 62 Chengxin 3rd Street, Futian Sub-district',
+    addressLocality: 'Yiwu, Jinhua',
+    addressRegion: 'Zhejiang',
+    addressCountry: 'CN',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: companyInfo.phone,
+    contactType: 'customer service',
+    email: companyInfo.email,
+    availableLanguage: ['English', 'Chinese'],
+  },
+};
+---
+
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Jinhua Luoyi Textile Co., Ltd., 金华洛屹纺织品有限公司, Luoyi Textile Factory, Yiwu Textile Exporter, Greige Fabric Supplier, Home Textiles OEM, Custom Fashion Accessories China, lycf.cn"
+    />
+    <meta name="author" content={companyInfo.name.en} />
+    <link rel="canonical" href="https://lycf.cn/" />
+    <link rel="icon" type="image/png" href="/luoyi logo.png" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lycf.cn/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://lycf.cn/luoyi%20logo.png" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Zero-Flicker Language Initialization -->
+    <script is:inline>
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var urlLang = params.get('lang');
+          var savedLang = localStorage.getItem('lycf_lang');
+          var lang = 'en';
+          if (urlLang === 'zh' || urlLang === 'en') {
+            lang = urlLang;
+            localStorage.setItem('lycf_lang', lang);
+          } else if (savedLang === 'zh' || savedLang === 'en') {
+            lang = savedLang;
+          }
+          document.documentElement.setAttribute('data-lang', lang);
+          document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+        } catch (e) {
+          document.documentElement.setAttribute('data-lang', 'en');
+        }
+      })();
+    </script>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body class="min-h-screen flex flex-col overflow-x-hidden">
+    <slot />
+
+    <!-- Global Bilingual & UI Controller Script -->
+    <script is:inline>
+      window.setSiteLanguage = function (lang) {
+        if (lang !== 'en' && lang !== 'zh') return;
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+        try {
+          localStorage.setItem('lycf_lang', lang);
+        } catch (e) {}
+
+        // Update dynamic placeholders and form inputs with data-placeholder-en / data-placeholder-zh
+        document.querySelectorAll('[data-placeholder-en]').forEach(function (el) {
+          var placeholder = el.getAttribute(lang === 'zh' ? 'data-placeholder-zh' : 'data-placeholder-en');
+          if (placeholder) el.setAttribute('placeholder', placeholder);
+        });
+
+        // Update language toggle button active states
+        document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
+          var btnLang = btn.getAttribute('data-lang-btn');
+          if (btnLang === lang) {
+            btn.classList.add('bg-brand-800', 'text-white', 'shadow-sm');
+            btn.classList.remove('text-slate-600', 'hover:text-brand-900');
+          } else {
+            btn.classList.remove('bg-brand-800', 'text-white', 'shadow-sm');
+            btn.classList.add('text-slate-600', 'hover:text-brand-900');
+          }
+        });
+
+        // Update document title dynamically
+        if (lang === 'zh') {
+          document.title = '金华洛屹纺织品有限公司 | Luoyi Textile — 面料坯布 · 家纺成品 · 纺织配饰外贸出口 (lycf.cn)';
+        } else {
+          document.title =
+            'Jinhua Luoyi Textile Co., Ltd. | Global Textile Exporter — Fabrics, Home Textiles & Accessories (lycf.cn)';
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+        window.setSiteLanguage(currentLang);
+      });
+    </script>
+  </body>
+</html>

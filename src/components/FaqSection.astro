@@ -1,0 +1,76 @@
+---
+import { faqList } from '../data/siteContent';
+---
+
+<section id="faq" class="py-20 md:py-24 bg-white border-t border-slate-200/80">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-3"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-800"></span>
+        <span class="lang-en">International Sourcing FAQ</span>
+        <span class="lang-zh">海外采购商常见问答 (FAQ)</span>
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">
+        <span class="lang-en">Key Answers on MOQ, Samples, Payment & Lead Times</span>
+        <span class="lang-zh">关于起订量、免费拿样、付款方式与交期的解答</span>
+      </h2>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="space-y-4">
+      {
+        faqList.map((item, idx) => (
+          <div class="faq-item rounded-2xl border border-slate-200/90 bg-slate-50/60 overflow-hidden transition-all">
+            <button
+              type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none hover:bg-slate-100/70 transition-colors"
+              aria-expanded={idx === 0 ? 'true' : 'false'}
+            >
+              <span class="font-display font-bold text-base sm:text-lg text-brand-900">
+                <span class="lang-en">{item.q.en}</span>
+                <span class="lang-zh">{item.q.zh}</span>
+              </span>
+              <span class="faq-icon shrink-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-brand-800 transition-transform duration-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </button>
+            <div class={`faq-panel px-6 pb-5 text-sm sm:text-base text-slate-600 leading-relaxed ${idx === 0 ? '' : 'hidden'}`}>
+              <div class="pt-2 border-t border-slate-200/70">
+                <span class="lang-en">{item.a.en}</span>
+                <span class="lang-zh">{item.a.zh}</span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var parent = btn.closest('.faq-item');
+        var panel = parent.querySelector('.faq-panel');
+        var icon = parent.querySelector('.faq-icon');
+        var isOpen = !panel.classList.contains('hidden');
+
+        if (isOpen) {
+          panel.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          if (icon) icon.classList.remove('rotate-180');
+        } else {
+          panel.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          if (icon) icon.classList.add('rotate-180');
+        }
+      });
+    });
+  });
+</script>

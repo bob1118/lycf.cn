@@ -1,0 +1,124 @@
+---
+import { oemSteps } from '../data/siteContent';
+---
+
+<section id="trade-services" class="py-20 md:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Title -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-100 text-gold-800 text-xs font-bold uppercase tracking-wider mb-3"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-gold-600"></span>
+        <span class="lang-en">Foreign Trade Services · OEM / ODM Export Workflow</span>
+        <span class="lang-zh">外贸服务 · 标准化 OEM / ODM 定制与出口流程</span>
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-brand-900 tracking-tight">
+        <span class="lang-en">From Swatch Development to Global Container Delivery</span>
+        <span class="lang-zh">从面料打样研发到全球集装箱出运的 6 步标准流程</span>
+      </h2>
+      <p class="mt-3 text-slate-600 text-base sm:text-lg">
+        <span class="lang-en">
+          Whether you are sourcing raw greige fabrics by the container or launching a private-label home textile & accessory collection, our dedicated English-speaking merchandisers manage every milestone.
+        </span>
+        <span class="lang-zh">
+          无论您是整柜采购常规坯布面料，还是开发自有品牌（Private Label）家纺与时尚配饰系列，我们经验丰富的外贸跟单团队均提供一对一全流程节点管控。
+        </span>
+      </p>
+    </div>
+
+    <!-- 6-Step Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {
+        oemSteps.map((item) => (
+          <div class="relative p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-400 hover:bg-white hover:shadow-card transition-all duration-300 group">
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-display text-3xl font-extrabold text-brand-800/20 group-hover:text-brand-800 transition-colors">
+                {item.step}
+              </span>
+              <span class="px-2.5 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold">
+                <span class="lang-en">{item.duration.en}</span>
+                <span class="lang-zh">{item.duration.zh}</span>
+              </span>
+            </div>
+            <h3 class="font-display text-lg sm:text-xl font-bold text-brand-900 mb-2.5">
+              <span class="lang-en">{item.title.en}</span>
+              <span class="lang-zh">{item.title.zh}</span>
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              <span class="lang-en">{item.desc.en}</span>
+              <span class="lang-zh">{item.desc.zh}</span>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Private Label & Value-Added Services Strip -->
+    <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-slate-900 text-white grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0 font-bold">
+          01
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">
+            <span class="lang-en">Pantone® Custom Dyeing</span>
+            <span class="lang-zh">潘通色号精准对色</span>
+          </h4>
+          <p class="text-xs text-slate-400 mt-1">
+            <span class="lang-en">TPX/TCX spectrophotometer matching with Delta E ≤ 0.8</span>
+            <span class="lang-zh">支持 Pantone TPX/TCX 电脑测色，缸差 ΔE ≤ 0.8</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0 font-bold">
+          02
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">
+            <span class="lang-en">Custom Labels & Hangtags</span>
+            <span class="lang-zh">全套辅料与标牌定制</span>
+          </h4>
+          <p class="text-xs text-slate-400 mt-1">
+            <span class="lang-en">Woven damask labels, satin care labels, leather patches</span>
+            <span class="lang-zh">织唛主标、多国语言洗水标、皮标吊牌一站式配套</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0 font-bold">
+          03
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">
+            <span class="lang-en">Retail & FBA Packaging</span>
+            <span class="lang-zh">商超与跨境零售包装</span>
+          </h4>
+          <p class="text-xs text-slate-400 mt-1">
+            <span class="lang-en">Gift boxes, PVC bags, FNSKU/UPC barcode labeling</span>
+            <span class="lang-zh">定制礼盒、拉链袋、亚马逊 FNSKU 条码及抗压外箱</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0 font-bold">
+          04
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-white">
+            <span class="lang-en">Flexible Multi-Item Consolidation</span>
+            <span class="lang-zh">多品类拼柜集运服务</span>
+          </h4>
+          <p class="text-xs text-slate-400 mt-1">
+            <span class="lang-en">Combine fabrics, home textiles & accessories in one container</span>
+            <span class="lang-zh">支持面料、家纺与配饰同柜混装报关，降低海运成本</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
